@@ -279,3 +279,14 @@ def getSwathList(indir):
 
 
 
+
+
+def swathMisregFile(path, swath):
+    '''
+    The azimuth misregistration of one swath: <dir>/IW<n>/<name> next to the
+    date's file when it exists, else the file itself. Swaths can need different
+    offsets (SISAR writes both), and a stack without per-swath files reads the
+    shared one as before.
+    '''
+    perSwath = os.path.join(os.path.dirname(str(path)), 'IW{0}'.format(swath), os.path.basename(str(path)))
+    return perSwath if os.path.exists(perSwath) else path

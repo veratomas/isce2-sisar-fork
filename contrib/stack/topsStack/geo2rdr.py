@@ -242,9 +242,11 @@ def main(iargs=None):
             outdir = os.path.join(inps.coregdir, 'IW{0}'.format(swath))
         os.makedirs(outdir, exist_ok=True)
 
-        if os.path.exists(str(inps.misreg_az)):
-            with open(inps.misreg_az, 'r') as f:
+        misregAzFile = ut.swathMisregFile(inps.misreg_az, swath)
+        if os.path.exists(str(misregAzFile)):
+            with open(misregAzFile, 'r') as f:
                 misreg_az = float(f.readline())
+            print('IW{0} azimuth misregistration from {1}: {2}'.format(swath, misregAzFile, misreg_az))
         else:
             misreg_az = 0.0
 
