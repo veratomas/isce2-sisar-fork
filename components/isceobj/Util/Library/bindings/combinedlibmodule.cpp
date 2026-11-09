@@ -309,7 +309,8 @@ PyObject* exportPoly2DToC(PyObject *self, PyObject *args)
         }
     }
 
-    printPoly2d(poly);
+    // SISAR: a debug dump of every polynomial crossing the binding, read by nothing.
+    // printPoly2d(poly);
     return Py_BuildValue("K", (uint64_t) poly);
 }
 
@@ -469,7 +470,8 @@ PyObject* importPoly2DFromC(PyObject *self, PyObject *args)
 
     }
 
-    printPoly2d(poly);
+    // SISAR: a debug dump of every polynomial crossing the binding, read by nothing.
+    // printPoly2d(poly);
 
     return Py_BuildValue("(ii)(dd)(dd) N",poly->azimuthOrder,
             poly->rangeOrder, poly->meanAzimuth, poly->meanRange,

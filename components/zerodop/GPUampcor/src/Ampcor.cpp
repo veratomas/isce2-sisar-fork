@@ -564,7 +564,8 @@ void Ampcor::ampcor() {
             //      refImg[0][yy]: image lines are read into each refImg[r][c] 'column'
             // ----------------------------------
 
-            printf("At line = %d\n", (y-schMarginY+1));
+            // SISAR: silenced, one line per chip row.
+            // printf("At line = %d\n", (y-schMarginY+1));
             yScaled = round(yScaleFactor * y);
 
             if (imgDatatypes[0] == DTYPE_COMPLEX) {
@@ -899,13 +900,15 @@ void Ampcor::ampcor() {
                         
                     } else {
 
-                        printf("Bad match at level 1\n");
+                        // SISAR: silenced, one line per rejected chip.
+                        // printf("Bad match at level 1\n");
 
                     } // thresholds
                 } // not edge point or no data point
             } // Loop over width
 
-            printf("XXX time for inner loop %.2f\n", aMethods.getInnerClock());
+            // SISAR: silenced timing trace.
+            // printf("XXX time for inner loop %.2f\n", aMethods.getInnerClock());
 
         } // Loop over length
 

@@ -464,7 +464,8 @@
 !c ----------------------------------------------------------------
 
          count = count + 1
-         write(6,*) 'At line = ',i_y-i_srchy
+!c SISAR: silenced, one line per chip row, read by nothing.
+!c         write(6,*) 'At line = ',i_y-i_srchy
 
          i_centeryi = i_y + (i_wsyi-1)/2.
          i_ylu = nint(r_scaley*i_y)
@@ -1382,13 +1383,15 @@
 
                   else
 
-                     write(6,*) 'Bad match at level 2'
+!c SISAR: silenced, one line per rejected chip, read by nothing.
+!c                     write(6,*) 'Bad match at level 2'
 
                   endif         !thresholds second pass
 
                else
 
-                  write(6,*) 'Bad match at level 1'
+!c SISAR: silenced, one line per rejected chip, read by nothing.
+!c                  write(6,*) 'Bad match at level 1'
 
                endif            !thresholds
 
@@ -1402,7 +1405,8 @@
          enddo                  !samples loop (j)
 
          t5 = seconds(t0)           ! start timer
-         write(6,*) 'XXX time for inner loop ', t5-t4
+!c SISAR: silenced timing trace.
+!c         write(6,*) 'XXX time for inner loop ', t5-t4
 
       enddo                     !line loop (i)
 
