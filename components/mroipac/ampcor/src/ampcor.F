@@ -156,9 +156,10 @@
       integer x_index
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-      write(6,*) 'Input Bands: ', band1, band2
+!c SISAR: silenced, advice repeated on every ampcor call (WARNING/ERROR kept).
+!c      write(6,*) 'Input Bands: ', band1, band2
 
-      write(6,*) ' XXX start timer'
+!c      write(6,*) ' XXX start timer'
       t0 = seconds(0.0)           ! start timer
 
       i_datatype(1) = i_complex   !will be changed according to user input
@@ -362,51 +363,55 @@
 
 
          if(i_srchx.lt.5)then
-           write(i_log,'(a)') 'CAUTION - Requesting very small search window pull in'
-           write(i_log,'(a,1x,i10,a)') 'Reference Window Size is             ',i_wsxi ,' sample pixels'
-           write(i_log,'(a,1x,i10,a)') 'Number of Search Pixels is           ',i_srchx ,' sample pixels'
-           write(i_log,'(a)') 'The rule of thumb is that the search window pull in is at least 5'
-           write(i_log,'(a)') 'pixels and is less than the reference window size divided by 5. '
+!c SISAR: silenced, advice repeated on every ampcor call (WARNING/ERROR kept).
+!c           write(i_log,'(a)') 'CAUTION - Requesting very small search window pull in'
+!c           write(i_log,'(a,1x,i10,a)') 'Reference Window Size is             ',i_wsxi ,' sample pixels'
+!c           write(i_log,'(a,1x,i10,a)') 'Number of Search Pixels is           ',i_srchx ,' sample pixels'
+!c           write(i_log,'(a)') 'The rule of thumb is that the search window pull in is at least 5'
+!c           write(i_log,'(a)') 'pixels and is less than the reference window size divided by 5. '
            jj = max(5,nint(float(i_wsxi)/6.0))
-           write(i_log,'(a,1x,i10,a)') 'Suggested Number of Search Pixels is ',jj,' sample pixels'
-           write(i_log,'(a)') ' '
+!c           write(i_log,'(a,1x,i10,a)') 'Suggested Number of Search Pixels is ',jj,' sample pixels'
+!c           write(i_log,'(a)') ' '
          endif
 
          ii = nint(float(i_wsxi)/float(i_srchx))
          if(ii.lt.5)then
-           write(i_log,'(a)') 'CAUTION - Requesting very large search window pull in'
-           write(i_log,'(a,1x,i10,a)') 'Reference Window Size is             ',i_wsxi ,' sample pixels'
-           write(i_log,'(a,1x,i10,a)') 'Number of Search Pixels is           ',i_srchx ,' sample pixels'
-           write(i_log,'(a)') 'The rule of thumb is that the search window pull in is at least 5'
-           write(i_log,'(a)') 'pixels and is less than the reference window size divided by 5. '
+!c SISAR: silenced, advice repeated on every ampcor call (WARNING/ERROR kept).
+!c           write(i_log,'(a)') 'CAUTION - Requesting very large search window pull in'
+!c           write(i_log,'(a,1x,i10,a)') 'Reference Window Size is             ',i_wsxi ,' sample pixels'
+!c           write(i_log,'(a,1x,i10,a)') 'Number of Search Pixels is           ',i_srchx ,' sample pixels'
+!c           write(i_log,'(a)') 'The rule of thumb is that the search window pull in is at least 5'
+!c           write(i_log,'(a)') 'pixels and is less than the reference window size divided by 5. '
            jj = max(5,nint(float(i_wsxi)/6.0))
-           write(i_log,'(a,1x,i10,a)') 'Suggested Number of Search Pixels is ',jj,' sample pixels'
-           write(i_log,'(a)') ' '
-           write(i_log,'(a)') ' '
+!c           write(i_log,'(a,1x,i10,a)') 'Suggested Number of Search Pixels is ',jj,' sample pixels'
+!c           write(i_log,'(a)') ' '
+!c           write(i_log,'(a)') ' '
          endif
 
          if(i_srchy.lt.5)then
-           write(i_log,'(a)') 'CAUTION - Requesting very small search window pull in'
-           write(i_log,'(a,1x,i10,a)') 'Reference Window Size is             ',i_wsyi ,' line pixels'
-           write(i_log,'(a,1x,i10,a)') 'Number of Search Pixels is           ',i_srchy ,' line pixels'
-           write(i_log,'(a)') 'The rule of thumb is that the search window pull in is at least 5'
-           write(i_log,'(a)') 'pixels and is less than the reference window size divided by 5. '
+!c SISAR: silenced, advice repeated on every ampcor call (WARNING/ERROR kept).
+!c           write(i_log,'(a)') 'CAUTION - Requesting very small search window pull in'
+!c           write(i_log,'(a,1x,i10,a)') 'Reference Window Size is             ',i_wsyi ,' line pixels'
+!c           write(i_log,'(a,1x,i10,a)') 'Number of Search Pixels is           ',i_srchy ,' line pixels'
+!c           write(i_log,'(a)') 'The rule of thumb is that the search window pull in is at least 5'
+!c           write(i_log,'(a)') 'pixels and is less than the reference window size divided by 5. '
            jj = max(5,nint(float(i_wsyi)/6.0))
-           write(i_log,'(a,1x,i10,a)') 'Suggested Number of Search Pixels is ',jj,' line pixels'
-           write(i_log,'(a)') ' '
+!c           write(i_log,'(a,1x,i10,a)') 'Suggested Number of Search Pixels is ',jj,' line pixels'
+!c           write(i_log,'(a)') ' '
          endif
 
          ii = nint(float(i_wsyi)/float(i_srchy))
          if(ii.lt.5)then
-           write(i_log,'(a)') 'CAUTION - Requesting very large search window pull in'
-           write(i_log,'(a,1x,i10,a)') 'Reference Window Size is             ',i_wsyi ,' line pixels'
-           write(i_log,'(a,1x,i10,a)') 'Number of Search Pixels is           ',i_srchy ,' line pixels'
-           write(i_log,'(a)') 'The rule of thumb is that the search window pull in is at least 5'
-           write(i_log,'(a)') 'pixels and is less than the reference window size divided by 5. '
+!c SISAR: silenced, advice repeated on every ampcor call (WARNING/ERROR kept).
+!c           write(i_log,'(a)') 'CAUTION - Requesting very large search window pull in'
+!c           write(i_log,'(a,1x,i10,a)') 'Reference Window Size is             ',i_wsyi ,' line pixels'
+!c           write(i_log,'(a,1x,i10,a)') 'Number of Search Pixels is           ',i_srchy ,' line pixels'
+!c           write(i_log,'(a)') 'The rule of thumb is that the search window pull in is at least 5'
+!c           write(i_log,'(a)') 'pixels and is less than the reference window size divided by 5. '
            jj = max(5,nint(float(i_wsyi)/6.0))
-           write(i_log,'(a,1x,i10,a)') 'Suggested Number of Search Pixels is ',jj,' line pixels'
-           write(i_log,'(a)') ' '
-           write(i_log,'(a)') ' '
+!c           write(i_log,'(a,1x,i10,a)') 'Suggested Number of Search Pixels is ',jj,' line pixels'
+!c           write(i_log,'(a)') ' '
+!c           write(i_log,'(a)') ' '
          endif
 
          if(i_cw.lt.8)then
@@ -417,19 +422,21 @@
            write(i_log,'(a)') ' '
          endif
 
-           write(i_log,'(a,1x,i4,a)') 'Requested resolving shifts to 1/',i_covs*2,' of a pixel'
-           write(i_log,'(a)') ' '
+!c SISAR: silenced, advice repeated on every ampcor call (WARNING/ERROR kept).
+!c           write(i_log,'(a,1x,i4,a)') 'Requested resolving shifts to 1/',i_covs*2,' of a pixel'
+!c           write(i_log,'(a)') ' '
 
          i_strtsamp = max(i_strtsamp,1)
          i_endsamp  = min(i_endsamp,i_samples(1))
 
          if(i_skipline.lt.i_wsyi .or. i_skipsamp.lt.i_wsxi)then
-           write(i_log,'(a)') 'INFORMATION - you choose skips which are small for your window sizes'
-           write(i_log,'(a)') 'Normally the skip size is bigger than the box size'
-           write(i_log,'(a,i10,a,i10)') 'Across your skip is ',i_skipsamp,' but your window is ',i_wsxi
-           write(i_log,'(a,i10,a,i10)') 'Down   your skip is ',i_skipline,' but your window is ',i_wsyi
-           write(i_log,'(a)') 'This means that the image chips are larger than the separation between chips'
-           write(i_log,'(a)') ' '
+!c SISAR: silenced, advice repeated on every ampcor call (WARNING/ERROR kept).
+!c           write(i_log,'(a)') 'INFORMATION - you choose skips which are small for your window sizes'
+!c           write(i_log,'(a)') 'Normally the skip size is bigger than the box size'
+!c           write(i_log,'(a,i10,a,i10)') 'Across your skip is ',i_skipsamp,' but your window is ',i_wsxi
+!c           write(i_log,'(a,i10,a,i10)') 'Down   your skip is ',i_skipline,' but your window is ',i_wsyi
+!c           write(i_log,'(a)') 'This means that the image chips are larger than the separation between chips'
+!c           write(i_log,'(a)') ' '
          endif
 
          r_covth = min(r_covth,999.999998)
@@ -438,10 +445,11 @@
          i_avgx = max(1,i_avgx)
          i_avgy = max(1,i_avgy)
          if(i_avgx.gt.1 .or. i_avgy.gt.1)then
-           write(i_log,'(a)')    'INFORMATION - You are looking down the data before cross correlation.'
-           write(i_log,'(a,i4)') 'Averaging the samples across the file by a factor of ',i_avgx
-           write(i_log,'(a,i4)') 'Averaging the lines   down   the file by a factor of ',i_avgy
-           write(i_log,'(a)')    ' '
+!c SISAR: silenced, advice repeated on every ampcor call (WARNING/ERROR kept).
+!c           write(i_log,'(a)')    'INFORMATION - You are looking down the data before cross correlation.'
+!c           write(i_log,'(a,i4)') 'Averaging the samples across the file by a factor of ',i_avgx
+!c           write(i_log,'(a,i4)') 'Averaging the lines   down   the file by a factor of ',i_avgy
+!c           write(i_log,'(a)')    ' '
          endif
 
 !c        end ruggedize
@@ -1413,7 +1421,8 @@
  489  continue
 
       t1=seconds(t0)
-      write(6,*) 'Elapsed time. ', t1
+!c SISAR: silenced, advice repeated on every ampcor call (WARNING/ERROR kept).
+!c      write(6,*) 'Elapsed time. ', t1
 
 
 !c Close files before exiting

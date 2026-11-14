@@ -110,7 +110,8 @@ void psfilt(char *int_filename, char *sm_filename, int width, int nlines, double
          sm[i1][j1].re=0.0; sm[i1][j1].im=0.0; 			/* clear out area for new sum */
        }     
      }
-     if(i%(2*step) == 0)fprintf(stderr,"\rline: %5d",i);
+     /* SISAR: silenced, \r progress counter with no newline floods the log. */
+     // if(i%(2*step) == 0)fprintf(stderr,"\rline: %5d",i);
   
      for (j=0; j < width; j += step){
        psd_wgt(cmp, seg_fft, alpha, j, i);	

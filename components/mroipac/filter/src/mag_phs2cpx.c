@@ -42,7 +42,8 @@ void mag_phs2cpx(char *InFile1, char *InFile2, char *OutFile, int Width)
    if(Length>Length2)Length=Length2;
    
    for(i=0;i<Length;i++){
-      if(i%100==0)fprintf(stderr,"\rline %d",i);
+      /* SISAR: silenced, \r progress counter with no newline floods the log. */
+      // if(i%100==0)fprintf(stderr,"\rline %d",i);
       fread(InLine1,sizeof(InLine1[0]),Width,InFP1);
       fread(InLine2,sizeof(InLine2[0]),Width,InFP2);
       for(j=0;j<Width;j++){
@@ -51,7 +52,8 @@ void mag_phs2cpx(char *InFile1, char *InFile2, char *OutFile, int Width)
          }
       fwrite(OutLine,sizeof(OutLine[0]),Width*2,OutFP);
       }
-   fprintf(stderr,"\n");
+   /* SISAR: silenced with the counter above, whose line it ended. */
+   // fprintf(stderr,"\n");
    close(InFP1);
    close(InFP2);
    close(OutFP);

@@ -417,8 +417,9 @@ class Ampcor(Component):
         if (self.scaleFactorX < 0.9) or (self.scaleFactorX > 1.1):
             raise ValueError('Ampcor is designed to work on images with maximum of 10%% scale difference in range. Attempting to use images with scale difference of %2.2f'%(self.scaleFactorX))
 
-        print('Scale Factor in Range: ', self.scaleFactorX)
-        print('Scale Factor in Azimuth: ', self.scaleFactorY)
+        # SISAR: silenced, printed on every ampcor call.
+        # print('Scale Factor in Range: ', self.scaleFactorX)
+        # print('Scale Factor in Azimuth: ', self.scaleFactorY)
 
         offAcmax = int(self.acrossGrossOffset + (self.scaleFactorX-1)*self.lineLength1)
 
@@ -432,7 +433,8 @@ class Ampcor(Component):
 
         if (self.skipSampleDown is None) and (self.numberLocationDown is not None):
             self.skipSampleDown = int((self.lastSampleDown - self.firstSampleDown) / (self.numberLocationDown - 1.))
-            print('Skip Sample Down: %d'%(self.skipSampleDown))
+            # SISAR: silenced, printed on every ampcor call.
+            # print('Skip Sample Down: %d'%(self.skipSampleDown))
         else:
             raise ValueError('Both skipSampleDown and numberLocationDown undefined. Need atleast one input.')
 
@@ -444,7 +446,8 @@ class Ampcor(Component):
 
         if (self.skipSampleAcross is None) and (self.numberLocationAcross is not None):
             self.skipSampleAcross = int((self.lastSampleAcross - self.firstSampleAcross) / (self.numberLocationAcross - 1.))
-            print('Skip Sample Across: %d'%(self.skipSampleAcross))
+            # SISAR: silenced, printed on every ampcor call.
+            # print('Skip Sample Across: %d'%(self.skipSampleAcross))
         else:
             raise ValueError('Both skipSampleDown and numberLocationDown undefined. Need atleast one input.')
 

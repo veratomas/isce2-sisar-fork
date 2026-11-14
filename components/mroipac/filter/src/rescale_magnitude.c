@@ -31,7 +31,8 @@ rescale_magnitude(char *int_filename,char *sm_filename,int width,int length)
           float phase = carg(smooth[j]);
 	  smooth[j] = mag*(cos(phase) + I*sin(phase));
 	}
-      if (i%1000) {fprintf(stderr,"\rline: %5d",i);}
+      /* SISAR: silenced, \r progress counter with no newline floods the log. */
+      // if (i%1000) {fprintf(stderr,"\rline: %5d",i);}
       fseek(sm_file,-width*sizeof(float complex),SEEK_CUR); // Back up to the begining of the line
       fwrite(smooth,sizeof(float complex),width,sm_file); // Replace the line with the smooth, rescaled value
       fflush(sm_file);

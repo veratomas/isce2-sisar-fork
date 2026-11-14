@@ -220,7 +220,8 @@ c     NOTE: if above condition changed, also need to update fftw3stub.c
               planFlagDestroy(i) = 0
           enddo
           call get_environment_variable("WISDOM_FILE", wisdomFile,length)
-          print*,"wisdomFile, length = ", wisdomFile(1:length), length
+!c SISAR: silenced, printed on every FFT plan.
+!c          print*,"wisdomFile, length = ", wisdomFile(1:length), length
           if (length .ne. 0) then
               ret = sfftw_import_wisdom_from_filename(wisdomFile(1:length) // C_NULL_CHAR)
               write(6,*) ret
